@@ -1,0 +1,37 @@
+@model Core.Models.Department;
+@{
+    ViewData["Title"] = "Insert Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Department</h1>
+</div>
+<link rel="stylesheet" href="~/css/table.css"/>
+@using (Html.BeginForm()){
+    <table>
+         <tr>
+            <th>@Html.LabelFor(model => model.Name)</th>
+            <td>@Html.EditorFor(model => model.Name)</td>
+        </tr>
+
+         <tr>
+            <th>@Html.LabelFor(model => model.Location)</th>
+            <td>@Html.EditorFor(model => model.Location)</td>
+        </tr>
+
+      
+
+    </table>
+   <button id="btn"><input type="submit" value="Insert" /></button>
+   <div class="alert">
+   <script type="text/javascript">
+   document.getElementById("btn").onclick=function(){alert("Record inserted successfully")}
+   </script>
+   </div>
+
+
+   <button><a href="/Employee/ShowAll">Back</a></button>
+
+    
+    
+}

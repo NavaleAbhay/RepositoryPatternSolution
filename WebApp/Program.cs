@@ -1,6 +1,13 @@
+using Core.Repositories;
+using Core.Models;
+using Core.Repositories.Interfaces;
+using Core.Services;
+using Core.Services.Interfaces;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddTransient<IDepartmentRepository,DepartmentRepository>();
+builder.Services.AddTransient<IDepartmentService,DepartmentService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

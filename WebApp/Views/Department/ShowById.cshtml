@@ -1,0 +1,23 @@
+@using Core.Models;
+@{
+    ViewData["Title"] = "Department Page";
+}
+
+<div class="text-center">
+    <h3 class="display-4">Department</h3>
+</div>
+@{
+    Department department=Model;
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Location</th>
+</tr>
+<tr>
+    <td>@Model.Id</td>
+    <td>@Model.Name</td>
+    <td>@Model.Location</td>
+</tr>
+</table>
+}
