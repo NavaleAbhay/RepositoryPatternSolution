@@ -68,7 +68,7 @@ public class DepartmentRepository : IDepartmentRepository
         {
             string query = "SELECT * FROM departments WHERE id=@Id";
             MySqlCommand command = new MySqlCommand(query, connection);
-            command.Parameters.AddWithValue("@Id",id);
+            command.Parameters.AddWithValue("@Id", id);
             connection.Open();
             MySqlDataReader reader = command.ExecuteReader();
             while (reader.Read())
