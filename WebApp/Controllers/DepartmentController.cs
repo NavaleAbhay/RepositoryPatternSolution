@@ -12,7 +12,7 @@ public class DepartmentController : Controller
 
     public DepartmentController(IDepartmentService departmentService)
     {
-        _departmentservice=departmentService;
+        _departmentservice = departmentService;
     }
 
     public IActionResult Index()
@@ -21,28 +21,28 @@ public class DepartmentController : Controller
     }
 
 
-[HttpGet]
+    [HttpGet]
     public IActionResult ShowAll()
     {
-        ViewData["allDepartments"]=_departmentservice.GetAllDepartments();
+        ViewData["allDepartments"] = _departmentservice.GetAllDepartments();
         return View();
     }
-[HttpGet]
+    [HttpGet]
     public IActionResult Search()
     {
         return View();
     }
-[HttpPost]
-     public IActionResult Search(int Id)
+    [HttpPost]
+    public IActionResult Search(int Id)
     {
-         Department department=_departmentservice.GetDepartmentById(Id);
-        return View("ShowById",department);
+        Department department = _departmentservice.GetDepartmentById(Id);
+        return View("ShowById", department);
     }
 
-[HttpGet]
-     public IActionResult ShowById()
+    [HttpGet]
+    public IActionResult ShowById()
     {
-       
+
         return View();
     }
 
