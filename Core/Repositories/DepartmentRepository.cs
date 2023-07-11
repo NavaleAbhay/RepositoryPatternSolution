@@ -2,11 +2,9 @@ using System.Data;
 using MySql.Data.MySqlClient;
 using Core.Models;
 using Core.Repositories.Interfaces;
-
 namespace Core.Repositories;
 public class DepartmentRepository : IDepartmentRepository
 {
-
     public static string connectionString = string.Empty;
     static DepartmentRepository()
     {
@@ -16,7 +14,6 @@ public class DepartmentRepository : IDepartmentRepository
     {
         throw new NotImplementedException();
     }
-
     public List<Department> GetAllDepartments()
     {
         List<Department> departments = new List<Department>();
@@ -34,18 +31,15 @@ public class DepartmentRepository : IDepartmentRepository
                 int id = Int32.Parse(reader["id"].ToString());
                 string deptName = reader["name"].ToString();
                 string location = reader["location"].ToString();
-
                 Department department = new Department()
                 {
                     Id = id,
                     Name = deptName,
                     Location = location
                 };
-
                 departments.Add(department);
             }
             reader.Close();
-
         }
         catch (Exception e)
         {
@@ -57,7 +51,6 @@ public class DepartmentRepository : IDepartmentRepository
         }
         return departments;
     }
-
 
     public Department GetDepartmentById(int id)
     {
@@ -82,7 +75,6 @@ public class DepartmentRepository : IDepartmentRepository
                     Name = name,
                     Location = location,
                 };
-
             }
             reader.Close();
         }
@@ -93,7 +85,6 @@ public class DepartmentRepository : IDepartmentRepository
         finally
         {
             connection.Close();
-
         }
         return foundDepartment;
     }
@@ -112,7 +103,6 @@ public class DepartmentRepository : IDepartmentRepository
             connection.Open();
             command.ExecuteNonQuery();
             status = true;
-
         }
         catch (Exception e)
         {
@@ -141,7 +131,6 @@ public class DepartmentRepository : IDepartmentRepository
         catch (Exception e)
         {
             throw e;
-
         }
         finally
         {
